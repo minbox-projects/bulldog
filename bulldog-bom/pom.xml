@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bulldog</artifactId>
+        <groupId>org.minbox.framework</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <artifactId>bulldog-bom</artifactId>
+    <properties>
+        <jackson-databind.version>2.11.2</jackson-databind.version>
+        <minbox.version>1.0.6-SNAPSHOT</minbox.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--MinBox-->
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>minbox-dependencies</artifactId>
+                <version>${minbox.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <!--BullDog-->
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>bulldog-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>bulldog-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>bulldog-management</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>bulldog-spring-context</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Others-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
