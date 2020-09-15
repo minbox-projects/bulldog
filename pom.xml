@@ -45,28 +45,6 @@
             <url>https://blog.yuqiyu.com</url>
         </developer>
     </developers>
-    <repositories>
-        <repository>
-            <id>aliyun-spring</id>
-            <url>https://maven.aliyun.com/repository/spring</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>aliyun-central</id>
-            <url>https://maven.aliyun.com/repository/central</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
     <build>
         <plugins>
             <plugin>
