@@ -22,6 +22,7 @@
         <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
         <maven.javadoc.skip>true</maven.javadoc.skip>
         <maven.test.skip>true</maven.test.skip>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
     <dependencyManagement>
         <dependencies>
