@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: bulldog-example-client
+server:
+  port: 8081

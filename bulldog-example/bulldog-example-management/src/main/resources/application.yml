@@ -1,0 +1,11 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: bulldog-example-management
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/test

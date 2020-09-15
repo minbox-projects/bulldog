@@ -1,0 +1,58 @@
+{
+  "error": {
+    "server_connection_failed": "Server connection failed.  "
+  },
+  "log": {
+    "title": "链路日志列表",
+    "top-menu": "链路日志",
+    "time": "请求时间",
+    "traceId": "链路编号",
+    "uri": "请求日志",
+    "status": "响应状态",
+    "method": "请求方式",
+    "serviceId": "服务ID",
+    "consumeTime": "耗时(ms)"
+  },
+  "services": {
+    "top-menu": "日志服务",
+    "title": "服务列表",
+    "id": "服务ID",
+    "ip": "服务IP",
+    "port": "服务端口号",
+    "lastReportTime": "最后上报时间",
+    "createTime": "首次上报时间"
+  },
+  "term": {
+    "application": "Application",
+    "attributes": "Attributes",
+    "bytes": "Bytes",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "cleared": "Cleared",
+    "close": "Close",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "deleted": "Deleted",
+    "duration": "Duration",
+    "event": "Event",
+    "ever": "ever",
+    "executing": "Executing...",
+    "execution_failed": "Execution failed.",
+    "execution_successful": "Execution successful.",
+    "failed": "Failed",
+    "float": "Float",
+    "hours": "{count} hour | {count} hours",
+    "instances": "Instances",
+    "integer": "Integer",
+    "milliseconds": "Milliseconds",
+    "minutes": "{count} minute | {count} minutes",
+    "name": "Name",
+    "operations": "Operations",
+    "save": "Save",
+    "stacktrace": "Stacktrace",
+    "suppress": "Suppress",
+    "time": "Time",
+    "unsuppress": "Unsuppress",
+    "username": "Username"
+  }
+}
