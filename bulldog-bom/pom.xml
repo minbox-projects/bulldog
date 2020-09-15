@@ -10,43 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <artifactId>bulldog-bom</artifactId>
-    <properties>
-        <minbox.version>1.0.6-SNAPSHOT</minbox.version>
-        <spring.version>5.2.8.RELEASE</spring.version>
-        <slf4j-api.version>1.7.30</slf4j-api.version>
-        <lombok.version>1.18.12</lombok.version>
-        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <transmittable-thread-local.version>2.11.5</transmittable-thread-local.version>
-        <spring-cloud-commons-dependencies.version>2.2.3.RELEASE</spring-cloud-commons-dependencies.version>
-        <feign-bom.version>11.0</feign-bom.version>
-        <jackson-bom.version>2.11.2</jackson-bom.version>
-    </properties>
     <dependencyManagement>
         <dependencies>
-            <!--bom list-->
-            <dependency>
-                <groupId>org.minbox.framework</groupId>
-                <artifactId>minbox-dependencies</artifactId>
-                <version>${minbox.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson</groupId>
-                <artifactId>jackson-bom</artifactId>
-                <version>${jackson-bom.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-bom</artifactId>
-                <version>${feign-bom.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-
-            <!--MinBox Dependencies-->
             <dependency>
                 <groupId>org.minbox.framework</groupId>
                 <artifactId>bulldog-client</artifactId>
@@ -66,38 +31,6 @@
                 <groupId>org.minbox.framework</groupId>
                 <artifactId>bulldog-spring-context</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-
-            <!--Other Dependencies-->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${javax.servlet-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>transmittable-thread-local</artifactId>
-                <version>${transmittable-thread-local.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-commons-dependencies</artifactId>
-                <version>${spring-cloud-commons-dependencies.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
