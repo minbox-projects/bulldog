@@ -19,7 +19,17 @@
             </dependency>
             <dependency>
                 <groupId>org.minbox.framework</groupId>
+                <artifactId>bulldog-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
                 <artifactId>bulldog-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
+                <artifactId>bulldog-collect</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

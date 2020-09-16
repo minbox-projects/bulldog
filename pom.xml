@@ -19,6 +19,7 @@
         <module>bulldog-test</module>
         <module>bulldog-spring-context</module>
         <module>bulldog-collect</module>
+        <module>bulldog-core</module>
     </modules>
     <groupId>org.minbox.framework</groupId>
     <artifactId>bulldog</artifactId>
