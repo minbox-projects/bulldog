@@ -33,5 +33,9 @@
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.minbox.framework</groupId>
+            <artifactId>bulldog-core</artifactId>
+        </dependency>
     </dependencies>
 </project>

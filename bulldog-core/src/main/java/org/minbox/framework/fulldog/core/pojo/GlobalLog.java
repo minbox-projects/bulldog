@@ -25,23 +25,25 @@ public class GlobalLog {
      */
     private String exceptionStack;
     /**
-     * caller class name
-     * {@link StackTraceElement#getClassName()}
+     * The log caller instance
      */
-    private String callerClass;
-    /**
-     * caller method name
-     * {@link StackTraceElement#getMethodName()}
-     */
-    private String callerMethod;
-    /**
-     * caller code line number
-     * {@link StackTraceElement#getLineNumber()}
-     */
-    private int callerCodeLineNumber;
+    private CallerData callerData;
     /**
      * the global log create time
      * default is current time millis
      */
     private Long createTime = System.currentTimeMillis();
+
+    /**
+     * Create a {@link GlobalLog} new instance
+     *
+     * @param level   The log level
+     * @param message The log message content
+     * @return created {@link GlobalLog} instance
+     */
+    public static GlobalLog create(LogLevel level, String message) {
+        return new GlobalLog()
+                .setLevel(level)
+                .setMessage(message);
+    }
 }
