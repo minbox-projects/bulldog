@@ -12,6 +12,7 @@
     <modules>
         <module>bulldog-log4j2-test</module>
         <module>bulldog-logback-test</module>
+        <module>bulldog-storage-test</module>
     </modules>
     <artifactId>bulldog-test</artifactId>
     <description>

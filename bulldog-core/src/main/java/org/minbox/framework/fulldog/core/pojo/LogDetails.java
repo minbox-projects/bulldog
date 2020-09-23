@@ -1,6 +1,7 @@
 package org.minbox.framework.fulldog.core.pojo;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.minbox.framework.fulldog.core.pojo.instance.ServiceInstance;
 
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.Map;
  * @see NonRequestLogDetails
  */
 @Data
+@Accessors(chain = true)
 public class LogDetails {
     /**
      * Log Unique number
