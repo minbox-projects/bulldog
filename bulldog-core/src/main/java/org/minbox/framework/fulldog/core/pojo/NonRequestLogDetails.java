@@ -2,7 +2,6 @@ package org.minbox.framework.fulldog.core.pojo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.minbox.framework.fulldog.core.enums.LogType;
 
 /**
  * The non-request log entity
@@ -20,8 +19,4 @@ public class NonRequestLogDetails extends LogDetails {
      * The log tag
      */
     private String tag;
-    /**
-     * log type
-     */
-    private LogType type = LogType.NON_REQUEST;
 }

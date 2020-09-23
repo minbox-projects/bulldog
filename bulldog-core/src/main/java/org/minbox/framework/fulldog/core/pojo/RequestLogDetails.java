@@ -1,10 +1,7 @@
 package org.minbox.framework.fulldog.core.pojo;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.minbox.framework.fulldog.core.enums.LogType;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 
@@ -30,11 +27,6 @@ public class RequestLogDetails extends LogDetails {
      * Request method
      */
     private HttpMethod method;
-    /**
-     * log type
-     */
-    @Setter(AccessLevel.PRIVATE)
-    private LogType type = LogType.REQUEST;
     /**
      * http request url parameter collection
      */
