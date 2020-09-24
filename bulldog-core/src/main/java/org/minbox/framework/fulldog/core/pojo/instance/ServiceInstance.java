@@ -1,6 +1,8 @@
 package org.minbox.framework.fulldog.core.pojo.instance;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -9,6 +11,7 @@ import lombok.experimental.Accessors;
  * @author 恒宇少年
  */
 @Data
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Accessors(chain = true)
 public class ServiceInstance {
     /**
@@ -29,4 +32,8 @@ public class ServiceInstance {
      * Log Service port
      */
     private int servicePort;
+
+    public static ServiceInstance instance() {
+        return new ServiceInstance();
+    }
 }
