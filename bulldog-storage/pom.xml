@@ -9,30 +9,22 @@
         <relativePath>../bulldog-bom</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>BullDog Storage</name>
+    <modules>
+        <module>bulldog-storage-core</module>
+        <module>bulldog-storage-mongodb</module>
+        <module>bulldog-storage-elasticsearch</module>
+    </modules>
     <artifactId>bulldog-storage</artifactId>
     <description>
         日志存储模块.
     </description>
     <dependencies>
         <dependency>
-            <groupId>org.minbox.framework</groupId>
-            <artifactId>bulldog-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.minbox.framework</groupId>
-            <artifactId>bulldog-core</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>compile</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-sync</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
