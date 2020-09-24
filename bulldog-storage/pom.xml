@@ -10,22 +10,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>bulldog-common</artifactId>
+    <name>BullDog Storage</name>
+    <artifactId>bulldog-storage</artifactId>
+    <description>
+        日志存储模块.
+    </description>
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <optional>true</optional>
+            <groupId>org.minbox.framework</groupId>
+            <artifactId>bulldog-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <optional>true</optional>
+            <groupId>org.minbox.framework</groupId>
+            <artifactId>bulldog-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -34,8 +31,14 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.minbox.framework</groupId>
-            <artifactId>bulldog-core</artifactId>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 </project>
