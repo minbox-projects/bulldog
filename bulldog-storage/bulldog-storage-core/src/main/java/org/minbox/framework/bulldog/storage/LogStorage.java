@@ -14,7 +14,7 @@ public interface LogStorage {
      * Save a {@link LogDetails}
      *
      * @param logDetails The {@link LogDetails} instance to be saved
-     * @return The {@link LogDetails#getLogId()} value
+     * @return ID of the log in different storage media
      */
     String save(LogDetails logDetails) throws LogStorageException;
 }

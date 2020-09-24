@@ -1,4 +1,4 @@
-package org.minbox.framework.bulldog.storage.mongo;
+package org.minbox.framework.bulldog.storage.mongodb;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -27,7 +27,6 @@ import org.minbox.framework.util.JsonUtils;
 @Slf4j
 public class MongoLogStorage implements LogStorage {
     private static final String MONGO_ID = "_id";
-    private static final String LOG_ID = "logId";
     private static final String DATABASE_NAME = "bulldog";
     private static final String REQUEST_COLLECTION_NAME = "request_logs";
     private static final String NON_REQUEST_COLLECTION_NAME = "non_request_logs";
@@ -57,7 +56,7 @@ public class MongoLogStorage implements LogStorage {
      * Save the {@link LogDetails} to mongodb
      *
      * @param logDetails The {@link LogDetails} instance to be saved
-     * @return The logId
+     * @return log mongoId
      * @throws LogStorageException exception
      */
     @Override
@@ -69,7 +68,7 @@ public class MongoLogStorage implements LogStorage {
         if (!result.wasAcknowledged()) {
             throw new LogStorageException("Acknowledged failed and the log has not been saved.");
         }
-        return document.getString(LOG_ID);
+        return document.getString(MONGO_ID);
     }
 
     /**
