@@ -11,7 +11,7 @@ import com.mongodb.client.model.Sorts;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
 import org.junit.jupiter.api.Test;
-import org.minbox.framework.bulldog.storage.mongo.MongoLogStorage;
+import org.minbox.framework.bulldog.storage.mongodb.MongoLogStorage;
 import org.minbox.framework.fulldog.core.pojo.NonRequestLogDetails;
 import org.minbox.framework.fulldog.core.pojo.RequestLogDetails;
 import org.minbox.framework.fulldog.core.pojo.instance.ServiceInstance;
@@ -38,8 +38,7 @@ public class MongoConnectionTest {
                 builder.maxSize(50);
             })
             .build();
-    MongoClient mongoClient = MongoClients.create(settings);
-    LogStorage logStorage = new MongoLogStorage(settings);
+    LogStorage logStorage = new MongoLogStorage("mongodb://admin:123456@localhost:27017/local?authSource=admin");
 
     /**
      * 性能测试
@@ -68,7 +67,7 @@ public class MongoConnectionTest {
                 .setSpanId(UUID.randomUUID().toString())
                 .setTimeConsuming(10)
                 .setStartTime(System.currentTimeMillis())
-                .setServiceInstance(new ServiceInstance()
+                .setServiceInstance(ServiceInstance.instance()
                         .setServiceIp("localhost")
                         .setServiceId("user-service")
                         .setServicePort(8080))
@@ -94,7 +93,7 @@ public class MongoConnectionTest {
                 .setStartTime(System.currentTimeMillis())
                 .setSpanId(UUID.randomUUID().toString())
                 .setTimeConsuming(10)
-                .setServiceInstance(new ServiceInstance()
+                .setServiceInstance(ServiceInstance.instance()
                         .setServiceIp("localhost")
                         .setServiceId("user-service")
                         .setServicePort(8080));
@@ -104,6 +103,7 @@ public class MongoConnectionTest {
 
     @Test
     public void findTest() {
+        MongoClient mongoClient = MongoClients.create(settings);
         MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
         MongoCollection collection = mongoDatabase.getCollection("bulldog");
         collection.find(
