@@ -2,8 +2,6 @@ package org.minbox.framework.bulldog.storage.database;
 
 import org.minbox.framework.bulldog.storage.LogStorage;
 import org.minbox.framework.bulldog.storage.LogStorageException;
-import org.minbox.framework.bulldog.storage.database.executor.service.ServiceInsertDataExecutor;
-import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
 import org.minbox.framework.fulldog.core.pojo.LogDetails;
 
 import javax.sql.DataSource;
@@ -26,12 +24,7 @@ public class DatabaseLogStorage implements LogStorage {
     public String save(LogDetails logDetails) throws LogStorageException {
         try {
             Connection connection = dataSource.getConnection();
-
-            // 保存ServiceDetails
-            ServiceInsertDataExecutor serviceInsertDataExecutor = new ServiceInsertDataExecutor();
-            ParameterVariable variable = new ParameterVariable();
-            serviceInsertDataExecutor.execute(connection, variable);
-
+            // TODO
         } catch (SQLException e) {
             e.printStackTrace();
         }
