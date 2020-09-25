@@ -77,6 +77,8 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
             statement.setBoolean(index, ((Boolean) value).booleanValue());
         } else if (value instanceof String) {
             statement.setString(index, String.valueOf(value));
+        } else if (value instanceof Long) {
+            statement.setLong(index, ((Long) value).longValue());
         } else {
             statement.setObject(index, value);
         }
