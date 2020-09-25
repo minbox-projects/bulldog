@@ -15,6 +15,7 @@
         <module>bulldog-storage-core</module>
         <module>bulldog-storage-mongodb</module>
         <module>bulldog-storage-elasticsearch</module>
+        <module>bulldog-storage-database</module>
     </modules>
     <artifactId>bulldog-storage</artifactId>
     <description>
