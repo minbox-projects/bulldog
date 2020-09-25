@@ -59,6 +59,11 @@
             </dependency>
             <dependency>
                 <groupId>org.minbox.framework</groupId>
+                <artifactId>bulldog-storage-database</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.minbox.framework</groupId>
                 <artifactId>bulldog-management</artifactId>
                 <version>${project.version}</version>
             </dependency>
