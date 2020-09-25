@@ -59,5 +59,6 @@ public class ParameterVariable {
     public void putVariable(String group, String name, Object value) {
         Map<String, Object> groupVariables = Optional.ofNullable(VARIABLES.get(group)).orElse(new HashMap());
         groupVariables.put(name, value);
+        VARIABLES.put(group, groupVariables);
     }
 }

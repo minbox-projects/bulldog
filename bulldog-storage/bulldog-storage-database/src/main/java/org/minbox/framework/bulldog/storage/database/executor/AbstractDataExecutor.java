@@ -1,6 +1,6 @@
 package org.minbox.framework.bulldog.storage.database.executor;
 
-import org.minbox.framework.bulldog.storage.database.executor.mapping.ParameterTypeMapping;
+import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
 
 import java.sql.PreparedStatement;
@@ -26,14 +26,14 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
      * @param variable Parametric variable collection object
      * @return {@link ParameterTypeMapping} list for executing SQL
      */
-    public abstract List<ParameterTypeMapping> getMappings(ParameterVariable variable);
+    public abstract List<ParameterTypeMapping> getParameterMappings(ParameterVariable variable);
 
     /**
      * Execute SQL pre-method
      *
      * @param variable Parametric variable collection object
      */
-    public void preExecute(ParameterVariable variable) {
+    protected void preExecute(ParameterVariable variable) {
         // Do nothing by default
     }
 
@@ -43,7 +43,7 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
      * @param variable Parametric variable collection object
      * @return The {@link #execute} method result value
      */
-    public abstract R afterExecute(ParameterVariable variable);
+    protected abstract R afterExecute(ParameterVariable variable);
 
     /**
      * Set {@link PreparedStatement} index parameter
@@ -52,8 +52,10 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
      * @param mappings  {@link ParameterTypeMapping} list for executing SQL
      */
     public void setParameters(PreparedStatement statement, List<ParameterTypeMapping> mappings) throws SQLException {
-        for (ParameterTypeMapping mapping : mappings) {
-            this.chooseAndSetParameterValue(statement, mapping);
+        if (mappings != null && mappings.size() > 0) {
+            for (ParameterTypeMapping mapping : mappings) {
+                this.chooseAndSetParameterValue(statement, mapping);
+            }
         }
     }
 
