@@ -1,7 +1,6 @@
 package org.minbox.framework.bulldog.storage.database.executor;
 
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
-import org.minbox.framework.bulldog.storage.database.executor.mapping.result.ResultTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
 
 import java.sql.Connection;
@@ -17,9 +16,7 @@ import java.util.List;
  */
 public abstract class QueryDataExecutor<R> extends AbstractDataExecutor<R> {
     /**
-     * Get {@link ResultTypeMapping} list
-     *
-     * @return The {@link ResultTypeMapping} list collection
+     * Mapping {@link ResultSet}
      */
     public abstract void mappingResult(ResultSet resultSet, ParameterVariable variable) throws SQLException;
 
