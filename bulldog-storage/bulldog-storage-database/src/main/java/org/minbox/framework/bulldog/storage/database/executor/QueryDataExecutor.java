@@ -3,10 +3,8 @@ package org.minbox.framework.bulldog.storage.database.executor;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -40,5 +38,15 @@ public abstract class QueryDataExecutor<R> extends AbstractDataExecutor<R> {
         resultSet.close();
         statement.close();
         return this.afterExecute(variable);
+    }
+
+    /**
+     * Convert "java.sql.Date" to {@link LocalDateTime}
+     *
+     * @param timestamp The {@link Timestamp} instance
+     * @return The {@link LocalDateTime} instance
+     */
+    protected LocalDateTime toLocalDateTime(Timestamp timestamp) {
+        return timestamp.toLocalDateTime();
     }
 }

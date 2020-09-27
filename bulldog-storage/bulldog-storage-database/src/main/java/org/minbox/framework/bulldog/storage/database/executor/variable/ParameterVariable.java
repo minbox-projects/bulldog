@@ -16,6 +16,15 @@ public class ParameterVariable {
     private ConcurrentMap<String, Map<String, Object>> VARIABLES = new ConcurrentHashMap();
 
     /**
+     * Create empty {@link ParameterVariable}
+     *
+     * @return The {@link ParameterVariable} instance
+     */
+    public static ParameterVariable empty() {
+        return new ParameterVariable();
+    }
+
+    /**
      * Get variable value
      *
      * @param group The group to which the variable belongs

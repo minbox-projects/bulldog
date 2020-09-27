@@ -17,15 +17,15 @@ import java.time.LocalDateTime;
 @Accessors(chain = true)
 public class ServiceInstance {
     /**
-     * Log Service details id
-     */
-    private String id;
-    /**
      * Log Service ID
      * <p>
      * Used to divide the service to which the log belongs
      */
     private String serviceId;
+    /**
+     * Log Service name
+     */
+    private String serviceName;
     /**
      * Log Service Ipv4 address
      */
