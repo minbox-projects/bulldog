@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDateTime;
+
 /**
  * The service instance
  *
@@ -14,6 +16,10 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Accessors(chain = true)
 public class ServiceInstance {
+    /**
+     * Log Service details id
+     */
+    private String id;
     /**
      * Log Service ID
      * <p>
@@ -32,6 +38,14 @@ public class ServiceInstance {
      * Log Service port
      */
     private int servicePort;
+    /**
+     * The last report time
+     */
+    private LocalDateTime lastReportTime;
+    /**
+     * service create time
+     */
+    private LocalDateTime createTime;
 
     public static ServiceInstance instance() {
         return new ServiceInstance();
