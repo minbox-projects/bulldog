@@ -6,7 +6,7 @@ package org.minbox.framework.bulldog.storage.database.executor.mapping.parameter
  * @author 恒宇少年
  */
 public class IntegerParameterTypeMapping extends AbstractParameterTypeMapping<Integer> {
-    public IntegerParameterTypeMapping(int index, Integer value) {
-        super(index, value);
+    public IntegerParameterTypeMapping(int parameterIndex, Integer parameterValue) {
+        super(parameterIndex, parameterValue);
     }
 }
