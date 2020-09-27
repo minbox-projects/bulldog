@@ -60,7 +60,8 @@ public class InsertRequestLogDataExecutor extends InsertDataExecutor<String> {
         RequestLogDetails log = variable.getVariable(REQUEST_LOG_INSTANCE);
         Assert.notNull(log, "The RequestLogDetails cannot be null.");
         Assert.notEmpty(log.getTraceId(), "The TraceId cannot be empty.");
-        Assert.notEmpty(log.getServiceInstance().getServiceId(), "The ServiceInstance pk value cannot be not empty.");
+        Assert.notNull(log.getServiceInstance(), "The ServiceId value cannot be not empty.");
+        Assert.notEmpty(log.getServiceInstance().getServiceId(), "The ServiceId value cannot be not empty.");
         Assert.notEmpty(log.getSpanId(), "The SpanId cannot be empty.");
         variable.putVariable(REQUEST_LOG_ID, UUID.randomUUID().toString());
     }
