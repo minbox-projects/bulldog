@@ -10,6 +10,7 @@ public interface VariableKeys {
      * The service instance keys
      */
     String SERVICE_INSTANCE = "ServiceInstance";
+    String SERVICE_INSTANCES = "ServiceInstances";
     String SERVICE_ID = "ServiceId";
     String SERVICE_NAME = "ServiceName";
     String SERVICE_IP = "ServiceIp";
