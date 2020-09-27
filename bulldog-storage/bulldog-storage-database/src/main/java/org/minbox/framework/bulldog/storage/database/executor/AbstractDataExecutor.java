@@ -1,7 +1,10 @@
 package org.minbox.framework.bulldog.storage.database.executor;
 
+import org.minbox.framework.bulldog.common.utils.StringUtils;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
+import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.StringParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
+import org.minbox.framework.util.JsonUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -82,5 +85,19 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
         } else {
             statement.setObject(index, value);
         }
+    }
+
+    /**
+     * When the given value is not empty,
+     * convert to json string and create StringParameterTypeMapping to return
+     *
+     * @param index The {@link PreparedStatement} Placeholder index
+     * @param value Judgment object
+     * @return The {@link StringParameterTypeMapping} instance
+     */
+    protected StringParameterTypeMapping notEmptyToParseJson(int index, Object value) {
+        return new StringParameterTypeMapping(index,
+                StringUtils.notEmptyTodo(value, function -> JsonUtils.toJsonString(value))
+        );
     }
 }
