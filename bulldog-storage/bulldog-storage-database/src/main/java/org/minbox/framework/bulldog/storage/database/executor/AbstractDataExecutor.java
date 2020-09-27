@@ -21,7 +21,7 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
      *
      * @return The sql string
      */
-    public abstract String getSql();
+    protected abstract String getSql();
 
     /**
      * Get {@link ParameterTypeMapping} list
@@ -29,7 +29,7 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
      * @param variable Parametric variable collection object
      * @return {@link ParameterTypeMapping} list for executing SQL
      */
-    public abstract List<ParameterTypeMapping> getParameterMappings(ParameterVariable variable);
+    protected abstract List<ParameterTypeMapping> getParameterMappings(ParameterVariable variable);
 
     /**
      * Execute SQL pre-method
@@ -54,7 +54,7 @@ public abstract class AbstractDataExecutor<R> implements DataExecutor<R> {
      * @param statement The {@link PreparedStatement} instance
      * @param mappings  {@link ParameterTypeMapping} list for executing SQL
      */
-    public void setParameters(PreparedStatement statement, List<ParameterTypeMapping> mappings) throws SQLException {
+    protected void setParameters(PreparedStatement statement, List<ParameterTypeMapping> mappings) throws SQLException {
         if (mappings != null && mappings.size() > 0) {
             for (ParameterTypeMapping mapping : mappings) {
                 this.chooseAndSetParameterValue(statement, mapping);
