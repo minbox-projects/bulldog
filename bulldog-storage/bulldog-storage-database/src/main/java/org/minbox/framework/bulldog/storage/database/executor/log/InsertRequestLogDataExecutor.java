@@ -7,6 +7,7 @@ import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.StringParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
+import org.minbox.framework.bulldog.storage.database.table.RequestLogTable;
 import org.minbox.framework.fulldog.core.pojo.RequestLogDetails;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -25,34 +26,10 @@ import static org.minbox.framework.bulldog.storage.database.executor.variable.Va
  * @author 恒宇少年
  */
 public class InsertRequestLogDataExecutor extends InsertDataExecutor<String> {
-    /**
-     * Insert Request Log SQL
-     */
-    private static final String SQL_INSERT_LOG =
-            "insert into bulldog_request_logs (log_id,\n" +
-                    "                                  service_id,\n" +
-                    "                                  trace_id,\n" +
-                    "                                  parent_span_id,\n" +
-                    "                                  span_id,\n" +
-                    "                                  start_time,\n" +
-                    "                                  end_time,\n" +
-                    "                                  time_consuming,\n" +
-                    "                                  metadata,\n" +
-                    "                                  request_uri,\n" +
-                    "                                  request_method,\n" +
-                    "                                  request_ip,\n" +
-                    "                                  request_url_params,\n" +
-                    "                                  request_body_params,\n" +
-                    "                                  request_headers,\n" +
-                    "                                  response_body,\n" +
-                    "                                  response_status,\n" +
-                    "                                  response_headers,\n" +
-                    "                                  exception_stack)\n" +
-                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     @Override
     public String getSql() {
-        return SQL_INSERT_LOG;
+        return RequestLogTable.SQL.INSERT.single();
     }
 
     @Override
