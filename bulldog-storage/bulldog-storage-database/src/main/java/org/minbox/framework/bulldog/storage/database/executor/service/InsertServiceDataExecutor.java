@@ -6,6 +6,7 @@ import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.StringParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
+import org.minbox.framework.bulldog.storage.database.table.ServiceInstanceTable;
 import org.minbox.framework.fulldog.core.pojo.instance.ServiceInstance;
 
 import java.util.Arrays;
@@ -20,18 +21,10 @@ import static org.minbox.framework.bulldog.storage.database.executor.variable.Va
  * @author 恒宇少年
  */
 public class InsertServiceDataExecutor extends InsertDataExecutor<String> {
-    /**
-     * Insert service detail sql
-     */
-    private static final String SQL_INSERT_SERVICE_DETAILS = "insert into bulldog_service_instance " +
-            "(service_id, service_name, service_ip, service_port, service_hostname)" +
-            " values (?, ?, ?, ?, ?);";
-
     @Override
     public String getSql() {
-        return SQL_INSERT_SERVICE_DETAILS;
+        return ServiceInstanceTable.SQL.INSERT.single();
     }
-
 
     @Override
     public void preExecute(ParameterVariable variable) {

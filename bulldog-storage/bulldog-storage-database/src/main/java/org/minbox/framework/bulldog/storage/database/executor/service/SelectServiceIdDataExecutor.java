@@ -6,6 +6,7 @@ import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.StringParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
+import org.minbox.framework.bulldog.storage.database.table.ServiceInstanceTable;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,20 +21,10 @@ import static org.minbox.framework.bulldog.storage.database.executor.variable.Va
  * @author 恒宇少年
  */
 public class SelectServiceIdDataExecutor extends QueryDataExecutor<String> {
-    /**
-     * Select ServiceDetails Id SQL
-     */
-    private static final String SQL_SELECT_SERVICE_DETAILS_ID = "select service_id\n" +
-            "from bulldog_service_instance\n" +
-            "where service_name = ?\n" +
-            "  and service_ip = ?\n" +
-            "  and service_port = ?\n" +
-            "limit 1;";
-    private static final String COLUMN_NAME_SERVICE_ID = "service_id";
 
     @Override
     public String getSql() {
-        return SQL_SELECT_SERVICE_DETAILS_ID;
+        return ServiceInstanceTable.SQL.SELECT.byNameAndIpAndPort();
     }
 
     @Override
@@ -68,7 +59,7 @@ public class SelectServiceIdDataExecutor extends QueryDataExecutor<String> {
     @Override
     public void mappingResult(ResultSet resultSet, ParameterVariable variable) throws SQLException {
         while (resultSet.next()) {
-            String serviceId = resultSet.getString(COLUMN_NAME_SERVICE_ID);
+            String serviceId = resultSet.getString(ServiceInstanceTable.COLUMNS.SERVICE_ID);
             variable.putVariable(SERVICE_ID, serviceId);
         }
     }
