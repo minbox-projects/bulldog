@@ -6,6 +6,7 @@ import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.StringParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
+import org.minbox.framework.bulldog.storage.database.table.ServiceInstanceTable;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -20,13 +21,10 @@ import static org.minbox.framework.bulldog.storage.database.executor.variable.Va
  * @author 恒宇少年
  */
 public class UpdateServiceReportTimeDataExecutor extends UpdateDataExecutor<Void> {
-    private static final String SQL_UPDATE_REPORT_TIME = "update bulldog_service_instance\n" +
-            "set last_report_time = ?\n" +
-            "where service_id =?;";
 
     @Override
     public String getSql() {
-        return SQL_UPDATE_REPORT_TIME;
+        return ServiceInstanceTable.SQL.UPDATE.lastReportTime();
     }
 
     @Override
