@@ -1,5 +1,6 @@
 package org.minbox.framework.bulldog.common.utils;
 
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -31,6 +32,10 @@ public class Assert {
         // String
         if (source instanceof String) {
             assertEqualsTrue(((String) source).length() == 0, message);
+        }
+        // Array
+        else if (source.getClass().isArray()) {
+            assertEqualsTrue(Array.getLength(source) == 0, message);
         }
         // List
         else if (source instanceof List) {
