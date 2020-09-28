@@ -2,6 +2,7 @@ package org.minbox.framework.bulldog.storage.database.executor;
 
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
+import org.springframework.util.ObjectUtils;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -47,6 +48,6 @@ public abstract class QueryDataExecutor<R> extends AbstractDataExecutor<R> {
      * @return The {@link LocalDateTime} instance
      */
     protected LocalDateTime toLocalDateTime(Timestamp timestamp) {
-        return timestamp.toLocalDateTime();
+        return !ObjectUtils.isEmpty(timestamp) ? timestamp.toLocalDateTime() : null;
     }
 }
