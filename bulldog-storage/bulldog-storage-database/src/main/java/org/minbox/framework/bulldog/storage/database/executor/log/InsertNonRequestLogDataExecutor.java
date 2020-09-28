@@ -6,6 +6,7 @@ import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.StringParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
+import org.minbox.framework.bulldog.storage.database.table.NonRequestLogTable;
 import org.minbox.framework.fulldog.core.pojo.NonRequestLogDetails;
 
 import java.util.Arrays;
@@ -21,26 +22,10 @@ import static org.minbox.framework.bulldog.storage.database.executor.variable.Va
  * @author 恒宇少年
  */
 public class InsertNonRequestLogDataExecutor extends InsertDataExecutor<String> {
-    /**
-     * Insert non-request log sql
-     */
-    private static final String SQL_INSERT_NON_REQUEST_LOG =
-            "insert into bulldog_non_request_logs (log_id,\n" +
-                    "                                      trace_id,\n" +
-                    "                                      span_id,\n" +
-                    "                                      parent_span_id,\n" +
-                    "                                      service_id,\n" +
-                    "                                      start_time,\n" +
-                    "                                      end_time,\n" +
-                    "                                      time_consuming,\n" +
-                    "                                      metadata,\n" +
-                    "                                      group_name,\n" +
-                    "                                      tag)\n" +
-                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);\n";
 
     @Override
     protected String getSql() {
-        return SQL_INSERT_NON_REQUEST_LOG;
+        return NonRequestLogTable.SQL.INSERT.single();
     }
 
     @Override
