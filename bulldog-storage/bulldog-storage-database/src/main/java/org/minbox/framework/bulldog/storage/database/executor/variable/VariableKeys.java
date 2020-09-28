@@ -30,4 +30,10 @@ public interface VariableKeys {
      */
     String NON_REQUEST_LOG_INSTANCE = "NonRequestLogInstance";
     String NON_REQUEST_LOG_ID = "NonRequestLogId";
+
+    /**
+     * The global log keys
+     */
+    String GLOBAL_LOG_INSTANCE = "GlobalLogInstance";
+    String GLOBAL_LOG_ID = "GlobalLogId";
 }

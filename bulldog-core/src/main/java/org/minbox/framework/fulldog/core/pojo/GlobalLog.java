@@ -13,6 +13,14 @@ import org.minbox.framework.fulldog.core.enums.LogLevel;
 @Accessors(chain = true)
 public class GlobalLog {
     /**
+     * The global log id
+     */
+    private String globalLogId;
+    /**
+     * Log id to which it belongs
+     */
+    private String logId;
+    /**
      * The log level
      */
     private LogLevel level;
@@ -27,7 +35,7 @@ public class GlobalLog {
     /**
      * The log caller instance
      */
-    private CallerData callerData;
+    private CallerData callerData = new CallerData();
     /**
      * the global log create time
      * default is current time millis
