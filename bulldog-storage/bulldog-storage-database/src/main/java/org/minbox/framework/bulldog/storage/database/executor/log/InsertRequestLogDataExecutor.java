@@ -50,18 +50,18 @@ public class InsertRequestLogDataExecutor extends InsertDataExecutor<String> {
                 new LongParameterTypeMapping(6, log.getStartTime()),
                 new LongParameterTypeMapping(7, log.getEndTime()),
                 new LongParameterTypeMapping(8, log.getTimeConsuming()),
-                this.notEmptyToParseJson(9, log.getMetadata()),
+                new StringParameterTypeMapping(9, log.getMetadata()),
                 new StringParameterTypeMapping(10, log.getRequestUri()),
                 // HttpMethod
-                new StringParameterTypeMapping(11,log.getMethod()),
+                new StringParameterTypeMapping(11, log.getMethod()),
                 new StringParameterTypeMapping(12, log.getRequestIp()),
-                this.notEmptyToParseJson(13, log.getRequestUrlParams()),
-                this.notEmptyToParseJson(14, log.getRequestBodyParams()),
-                this.notEmptyToParseJson(15, log.getRequestHeaders()),
+                new StringParameterTypeMapping(13, log.getRequestUrlParams()),
+                new StringParameterTypeMapping(14, log.getRequestBodyParams()),
+                new StringParameterTypeMapping(15, log.getRequestHeaders()),
                 new StringParameterTypeMapping(16, log.getResponseBody()),
                 // Response Status
-                new StringParameterTypeMapping(17,log.getResponseStatus()),
-                this.notEmptyToParseJson(18, log.getResponseHeaders()),
+                new StringParameterTypeMapping(17, log.getResponseStatus()),
+                new StringParameterTypeMapping(18, log.getResponseHeaders()),
                 new StringParameterTypeMapping(19, log.getExceptionStack())
         );
     }

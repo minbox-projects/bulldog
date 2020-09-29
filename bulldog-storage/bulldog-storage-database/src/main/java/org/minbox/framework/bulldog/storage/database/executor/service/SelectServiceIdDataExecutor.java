@@ -7,6 +7,7 @@ import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.StringParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
 import org.minbox.framework.bulldog.storage.database.table.ServiceInstanceTable;
+import org.minbox.framework.fulldog.core.storage.Columns;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -59,7 +60,7 @@ public class SelectServiceIdDataExecutor extends QueryDataExecutor<String> {
     @Override
     public void mappingResult(ResultSet resultSet, ParameterVariable variable) throws SQLException {
         while (resultSet.next()) {
-            String serviceId = resultSet.getString(ServiceInstanceTable.COLUMNS.SERVICE_ID);
+            String serviceId = resultSet.getString(Columns.ServiceInstance.SERVICE_ID);
             variable.putVariable(SERVICE_ID, serviceId);
         }
     }

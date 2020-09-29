@@ -2,7 +2,7 @@ package org.minbox.framework.bulldog.storage.database.table;
 
 import org.minbox.framework.fulldog.core.pojo.instance.ServiceInstance;
 
-import static org.minbox.framework.bulldog.storage.database.table.ServiceInstanceTable.COLUMNS.*;
+import static org.minbox.framework.fulldog.core.storage.Columns.ServiceInstance.*;
 
 /**
  * The "bulldog_service_instance" table define
@@ -14,19 +14,6 @@ public class ServiceInstanceTable {
      * The table name of {@link ServiceInstance}
      */
     public static final String TABLE_NAME = "bulldog_service_instance";
-
-    /**
-     * The table "bulldog_service_instance" columns
-     */
-    public static class COLUMNS {
-        public static final String SERVICE_ID = "service_id";
-        public static final String SERVICE_NAME = "service_name";
-        public static final String SERVICE_IP = "service_ip";
-        public static final String SERVICE_PORT = "service_port";
-        public static final String SERVICE_HOSTNAME = "service_hostname";
-        public static final String SERVICE_LAST_REPORT_TIME = "last_report_time";
-        public static final String SERVICE_CREATE_TIME = "create_time";
-    }
 
     /**
      * All SQL statement definitions
