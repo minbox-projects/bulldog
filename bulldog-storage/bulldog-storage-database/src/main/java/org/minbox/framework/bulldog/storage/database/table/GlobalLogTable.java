@@ -41,7 +41,8 @@ public class GlobalLogTable {
              */
             public static String byLogId() {
                 return SQLPatterns.selectSql(TABLE_NAME, SQLPatterns.ALL_COLUMN) +
-                        SQLPatterns.whereAndSql(LOG_ID);
+                        SQLPatterns.whereAndSql(LOG_ID) +
+                        SQLPatterns.orderBySql(SortBy.desc, CREATE_TIME);
             }
         }
     }
