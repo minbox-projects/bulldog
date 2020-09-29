@@ -5,10 +5,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.minbox.framework.bulldog.storage.database.executor.log.InsertGlobalLogDataExecutor;
-import org.minbox.framework.bulldog.storage.database.executor.log.InsertNonRequestLogDataExecutor;
-import org.minbox.framework.bulldog.storage.database.executor.log.InsertRequestLogDataExecutor;
-import org.minbox.framework.bulldog.storage.database.executor.log.SelectRequestLogByTraceDataExecutor;
+import org.minbox.framework.bulldog.storage.database.executor.log.*;
 import org.minbox.framework.bulldog.storage.database.executor.service.InsertServiceDataExecutor;
 import org.minbox.framework.bulldog.storage.database.executor.service.SelectAllServiceDataExecutor;
 import org.minbox.framework.bulldog.storage.database.executor.service.SelectServiceIdDataExecutor;
@@ -172,5 +169,14 @@ public class DatabaseStorageTest {
         variable.putVariable(REQUEST_TRACE_ID, "952c2f6f-baaa-4713-a46a-ffac992279c7");
         List<RequestLogDetails> details = executor.execute(dataSource.getConnection(), variable);
         System.out.println(JsonUtils.beautifyJson(details));
+    }
+
+    @Test
+    public void selectGlobalLogByLogId() throws SQLException {
+        SelectGlobalLogByLogIdDataExecutor executor = new SelectGlobalLogByLogIdDataExecutor();
+        ParameterVariable variable = ParameterVariable.empty();
+        variable.putVariable(GLOBAL_LOG_ID, "7bd31326-14ad-4138-bca3-d1f1b2a37a68");
+        List<GlobalLog> globalLogs = executor.execute(dataSource.getConnection(), variable);
+        System.out.println(JsonUtils.beautifyJson(globalLogs));
     }
 }

@@ -6,6 +6,8 @@ import org.minbox.framework.fulldog.core.annotation.SourceMapping;
 import org.minbox.framework.fulldog.core.enums.LogLevel;
 import org.minbox.framework.fulldog.core.storage.Columns;
 
+import java.sql.Timestamp;
+
 /**
  * The Global log
  *
@@ -64,7 +66,7 @@ public class GlobalLog {
      * default is current time millis
      */
     @SourceMapping(sourceName = Columns.GlobalLog.CREATE_TIME)
-    private Long createTime;
+    private Timestamp createTime;
 
     /**
      * Create a {@link GlobalLog} new instance
