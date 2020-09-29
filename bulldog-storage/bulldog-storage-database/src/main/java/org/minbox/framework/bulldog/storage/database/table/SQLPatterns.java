@@ -24,7 +24,9 @@ public class SQLPatterns {
     private static final String EQUAL_STRING = " = ";
     private static final String WHERE = " where ";
     private static final String AND = " and ";
+    private static final String SPACE = " ";
     public static final String ALL_COLUMN = "*";
+    public static final String ORDER = " order by ";
 
     /**
      * Format the insert sql of the given table name
@@ -85,6 +87,21 @@ public class SQLPatterns {
         String columnSql = eachAppendColumns(columns, AND, columnName -> columnName + EQUAL_STRING + PS_PLACEHOLDER);
         where.append(columnSql);
         return where.toString();
+    }
+
+    /**
+     * Format order sql
+     *
+     * @param sortBy  sort by away
+     * @param columns column name array
+     * @return order sql
+     */
+    public static String orderBySql(SortBy sortBy, String... columns) {
+        StringBuffer orderSql = new StringBuffer(ORDER);
+        orderSql.append(eachAppendColumns(columns, COLUMN_SPLIT, columnName -> columnName));
+        orderSql.append(SPACE);
+        orderSql.append(sortBy.toString());
+        return orderSql.toString();
     }
 
     /**

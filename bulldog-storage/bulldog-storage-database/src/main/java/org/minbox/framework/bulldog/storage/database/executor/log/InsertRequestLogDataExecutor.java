@@ -1,7 +1,6 @@
 package org.minbox.framework.bulldog.storage.database.executor.log;
 
 import org.minbox.framework.bulldog.common.utils.Assert;
-import org.minbox.framework.bulldog.common.utils.StringUtils;
 import org.minbox.framework.bulldog.storage.database.executor.InsertDataExecutor;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.LongParameterTypeMapping;
 import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.ParameterTypeMapping;
@@ -9,13 +8,10 @@ import org.minbox.framework.bulldog.storage.database.executor.mapping.parameter.
 import org.minbox.framework.bulldog.storage.database.executor.variable.ParameterVariable;
 import org.minbox.framework.bulldog.storage.database.table.RequestLogTable;
 import org.minbox.framework.fulldog.core.pojo.RequestLogDetails;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Function;
 
 import static org.minbox.framework.bulldog.storage.database.executor.variable.VariableKeys.REQUEST_LOG_ID;
 import static org.minbox.framework.bulldog.storage.database.executor.variable.VariableKeys.REQUEST_LOG_INSTANCE;
@@ -37,8 +33,7 @@ public class InsertRequestLogDataExecutor extends InsertDataExecutor<String> {
         RequestLogDetails log = variable.getVariable(REQUEST_LOG_INSTANCE);
         Assert.notNull(log, "The RequestLogDetails cannot be null.");
         Assert.notEmpty(log.getTraceId(), "The TraceId cannot be empty.");
-        Assert.notNull(log.getServiceInstance(), "The ServiceId value cannot be not empty.");
-        Assert.notEmpty(log.getServiceInstance().getServiceId(), "The ServiceId value cannot be not empty.");
+        Assert.notEmpty(log.getServiceId(), "The ServiceId value cannot be not empty.");
         Assert.notEmpty(log.getSpanId(), "The SpanId cannot be empty.");
         variable.putVariable(REQUEST_LOG_ID, UUID.randomUUID().toString());
     }
@@ -48,7 +43,7 @@ public class InsertRequestLogDataExecutor extends InsertDataExecutor<String> {
         RequestLogDetails log = variable.getVariable(REQUEST_LOG_INSTANCE);
         return Arrays.asList(
                 new StringParameterTypeMapping(1, variable.getVariable(REQUEST_LOG_ID)),
-                new StringParameterTypeMapping(2, log.getServiceInstance().getServiceId()),
+                new StringParameterTypeMapping(2, log.getServiceId()),
                 new StringParameterTypeMapping(3, log.getTraceId()),
                 new StringParameterTypeMapping(4, log.getParentSpanId()),
                 new StringParameterTypeMapping(5, log.getSpanId()),
@@ -58,18 +53,14 @@ public class InsertRequestLogDataExecutor extends InsertDataExecutor<String> {
                 this.notEmptyToParseJson(9, log.getMetadata()),
                 new StringParameterTypeMapping(10, log.getRequestUri()),
                 // HttpMethod
-                new StringParameterTypeMapping(11,
-                        StringUtils.notEmptyTodo(log.getMethod(),
-                                (Function<HttpMethod, String>) httpMethod -> httpMethod.toString())),
+                new StringParameterTypeMapping(11,log.getMethod()),
                 new StringParameterTypeMapping(12, log.getRequestIp()),
                 this.notEmptyToParseJson(13, log.getRequestUrlParams()),
                 this.notEmptyToParseJson(14, log.getRequestBodyParams()),
                 this.notEmptyToParseJson(15, log.getRequestHeaders()),
                 new StringParameterTypeMapping(16, log.getResponseBody()),
                 // Response Status
-                new StringParameterTypeMapping(17,
-                        StringUtils.notEmptyTodo(log.getResponseStatus(),
-                                (Function<HttpStatus, String>) httpStatus -> httpStatus.toString())),
+                new StringParameterTypeMapping(17,log.getResponseStatus()),
                 this.notEmptyToParseJson(18, log.getResponseHeaders()),
                 new StringParameterTypeMapping(19, log.getExceptionStack())
         );

@@ -36,7 +36,7 @@ public class InsertNonRequestLogDataExecutor extends InsertDataExecutor<String> 
                 new StringParameterTypeMapping(2, details.getTraceId()),
                 new StringParameterTypeMapping(3, details.getSpanId()),
                 new StringParameterTypeMapping(4, details.getParentSpanId()),
-                new StringParameterTypeMapping(5, details.getServiceInstance().getServiceId()),
+                new StringParameterTypeMapping(5, details.getServiceId()),
                 new LongParameterTypeMapping(6, details.getStartTime()),
                 new LongParameterTypeMapping(7, details.getEndTime()),
                 new LongParameterTypeMapping(8, details.getTimeConsuming()),
@@ -53,8 +53,7 @@ public class InsertNonRequestLogDataExecutor extends InsertDataExecutor<String> 
         Assert.notNull(details, "The NonRequestLogDetails cannot be null.");
         Assert.notEmpty(details.getTraceId(), "The traceId cannot be empty.");
         Assert.notEmpty(details.getSpanId(), "The spanId cannot be empty.");
-        Assert.notNull(details.getServiceInstance(), "The serviceId cannot be empty.");
-        Assert.notEmpty(details.getServiceInstance().getServiceId(), "The serviceId cannot be empty.");
+        Assert.notEmpty(details.getServiceId(), "The serviceId cannot be empty.");
         variable.putVariable(NON_REQUEST_LOG_ID, logId);
     }
 
