@@ -16,7 +16,7 @@ public abstract class QueryDataExecutor<R> extends AbstractDataExecutor<R> {
     /**
      * Mapping {@link ResultSet}
      */
-    public abstract void mappingResult(ResultSet resultSet, ParameterVariable variable) throws SQLException;
+    protected abstract void mappingResult(ResultSet resultSet, ParameterVariable variable) throws SQLException;
 
     /**
      * Execute delete SQL

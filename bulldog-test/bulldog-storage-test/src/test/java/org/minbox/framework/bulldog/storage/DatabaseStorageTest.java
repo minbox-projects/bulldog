@@ -179,4 +179,13 @@ public class DatabaseStorageTest {
         List<GlobalLog> globalLogs = executor.execute(dataSource.getConnection(), variable);
         System.out.println(JsonUtils.beautifyJson(globalLogs));
     }
+
+    @Test
+    public void selectNonRequestLogByTrace() throws SQLException {
+        SelectNonRequestLogByTraceDataExecutor executor = new SelectNonRequestLogByTraceDataExecutor();
+        ParameterVariable variable = ParameterVariable.empty();
+        variable.putVariable(NON_REQUEST_TRACE_ID, "a0d5f185-136a-4ba6-af94-c4a70ecc3629");
+        List<NonRequestLogDetails> details = executor.execute(dataSource.getConnection(), variable);
+        System.out.println(JsonUtils.beautifyJson(details));
+    }
 }
