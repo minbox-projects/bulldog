@@ -35,10 +35,10 @@ public class InsertGlobalLogDataExecutor extends InsertDataExecutor<String> {
                 new StringParameterTypeMapping(2, globalLog.getLogId()),
                 new StringParameterTypeMapping(3, globalLog.getLevel().toString()),
                 new StringParameterTypeMapping(4, globalLog.getMessage()),
-                new StringParameterTypeMapping(5, globalLog.getCallerData().getClassName()),
-                new StringParameterTypeMapping(6, globalLog.getCallerData().getMethodName()),
-                new StringParameterTypeMapping(7, globalLog.getCallerData().getFileName()),
-                new IntegerParameterTypeMapping(8, globalLog.getCallerData().getLineNumber()),
+                new StringParameterTypeMapping(5, globalLog.getCallClassName()),
+                new StringParameterTypeMapping(6, globalLog.getCallMethodName()),
+                new StringParameterTypeMapping(7, globalLog.getCallFileName()),
+                new IntegerParameterTypeMapping(8, globalLog.getCallLineNumber()),
                 new StringParameterTypeMapping(9, globalLog.getExceptionStack())
         );
     }

@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.minbox.framework.bulldog.collect.LogContainer;
 import org.minbox.framework.fulldog.core.BullDogLogException;
 import org.minbox.framework.fulldog.core.enums.LogLevel;
-import org.minbox.framework.fulldog.core.pojo.CallerData;
 import org.minbox.framework.fulldog.core.pojo.GlobalLog;
 import org.minbox.framework.util.StackTraceUtil;
 
@@ -58,13 +57,11 @@ public class LogCollectorAppender extends UnsynchronizedAppenderBase<ILoggingEve
      * @return The {@link GlobalLog} instance
      */
     private GlobalLog createGlobalLog(LogLevel level, String message, StackTraceElement stackTraceElement) {
-        GlobalLog globalLog = GlobalLog.create(level, message);
-        globalLog.setCallerData(new CallerData()
-                .setFileName(stackTraceElement.getFileName())
-                .setClassName(stackTraceElement.getClassName())
-                .setMethodName(stackTraceElement.getMethodName())
-                .setLineNumber(stackTraceElement.getLineNumber()));
-        return globalLog;
+        return GlobalLog.create(level, message)
+                .setCallFileName(stackTraceElement.getFileName())
+                .setCallClassName(stackTraceElement.getClassName())
+                .setCallMethodName(stackTraceElement.getMethodName())
+                .setCallLineNumber(stackTraceElement.getLineNumber());
     }
 
     /**

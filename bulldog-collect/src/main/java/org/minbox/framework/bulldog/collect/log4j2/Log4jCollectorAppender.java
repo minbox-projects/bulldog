@@ -10,7 +10,6 @@ import org.apache.logging.log4j.core.config.plugins.PluginFactory;
 import org.apache.logging.log4j.core.layout.PatternLayout;
 import org.minbox.framework.bulldog.collect.LogContainer;
 import org.minbox.framework.fulldog.core.enums.LogLevel;
-import org.minbox.framework.fulldog.core.pojo.CallerData;
 import org.minbox.framework.fulldog.core.pojo.GlobalLog;
 import org.minbox.framework.util.StackTraceUtil;
 
@@ -70,11 +69,10 @@ public class Log4jCollectorAppender extends AbstractAppender {
         StackTraceElement[] elements = (new Exception()).getStackTrace();
         StackTraceElement element = elements[SOURCE_CLASS_STACK_INDEX];
         return GlobalLog.create(level, message)
-                .setCallerData(new CallerData()
-                        .setLineNumber(element.getLineNumber())
-                        .setMethodName(element.getMethodName())
-                        .setClassName(element.getClassName())
-                        .setFileName(element.getFileName()));
+                .setCallFileName(element.getFileName())
+                .setCallClassName(element.getClassName())
+                .setCallMethodName(element.getMethodName())
+                .setCallLineNumber(element.getLineNumber());
     }
 
     /**

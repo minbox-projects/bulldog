@@ -5,7 +5,6 @@ import org.minbox.framework.bulldog.collect.LogCollector;
 import org.minbox.framework.bulldog.collect.LogPrinter;
 import org.minbox.framework.fulldog.core.enums.LogLevel;
 import org.minbox.framework.fulldog.core.pojo.GlobalLog;
-import org.minbox.framework.fulldog.core.pojo.CallerData;
 
 /**
  * Abstract implementation of {@link LogCollector}
@@ -41,11 +40,10 @@ public abstract class AbstractLogCollector implements LogCollector {
         StackTraceElement[] stackTraceElements = new Exception().getStackTrace();
         StackTraceElement stackTraceElement = stackTraceElements[3];
         return GlobalLog.create(level, message)
-                .setCallerData(new CallerData()
-                        .setClassName(stackTraceElement.getClassName())
-                        .setMethodName(stackTraceElement.getMethodName())
-                        .setFileName(stackTraceElement.getFileName())
-                        .setLineNumber(stackTraceElement.getLineNumber()));
+                .setCallFileName(stackTraceElement.getFileName())
+                .setCallClassName(stackTraceElement.getClassName())
+                .setCallMethodName(stackTraceElement.getMethodName())
+                .setCallLineNumber(stackTraceElement.getLineNumber());
     }
 
     /**
