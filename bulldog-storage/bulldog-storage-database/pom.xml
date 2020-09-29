@@ -18,11 +18,6 @@
             <groupId>org.minbox.framework</groupId>
             <artifactId>bulldog-storage-core</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
 
 </project>

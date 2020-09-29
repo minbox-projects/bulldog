@@ -23,7 +23,9 @@ public interface VariableKeys {
      * The request log keys
      */
     String REQUEST_LOG_INSTANCE = "RequestLogInstance";
+    String REQUEST_LOG_INSTANCES = "RequestLogInstances";
     String REQUEST_LOG_ID = "RequestLogId";
+    String REQUEST_TRACE_ID = "RequestTraceId";
 
     /**
      * The non-request log keys
