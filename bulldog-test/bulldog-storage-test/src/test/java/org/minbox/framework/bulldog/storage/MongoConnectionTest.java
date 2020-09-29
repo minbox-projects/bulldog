@@ -14,11 +14,9 @@ import org.junit.jupiter.api.Test;
 import org.minbox.framework.bulldog.storage.mongodb.MongoLogStorage;
 import org.minbox.framework.fulldog.core.pojo.NonRequestLogDetails;
 import org.minbox.framework.fulldog.core.pojo.RequestLogDetails;
-import org.minbox.framework.fulldog.core.pojo.instance.ServiceInstance;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 
-import java.util.HashMap;
 import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.and;
@@ -58,25 +56,16 @@ public class MongoConnectionTest {
 
         details
                 .setRequestUri("/user/1")
-                .setMethod(HttpMethod.GET)
+                .setMethod(HttpMethod.GET.toString())
                 .setRequestIp("127.0.0.1")
-                .setResponseStatus(HttpStatus.OK)
+                .setResponseStatus(HttpStatus.OK.toString())
                 .setLogId(UUID.randomUUID().toString())
                 .setTraceId(UUID.randomUUID().toString())
                 .setEndTime(System.currentTimeMillis())
                 .setSpanId(UUID.randomUUID().toString())
-                .setTimeConsuming(10)
+                .setTimeConsuming(10L)
                 .setStartTime(System.currentTimeMillis())
-                .setServiceInstance(ServiceInstance.instance()
-                        .setServiceIp("localhost")
-                        .setServiceId("user-service")
-                        .setServicePort(8080))
-                .setMetadata(new HashMap() {
-                    {
-                        put("group", "request");
-                        put("tag", "today");
-                    }
-                });
+                .setServiceId("8e2143be-b665-40e8-be96-01e96f9d3ae7");
         String logId = logStorage.save(details);
         log.info("日志编号：{}", logId);
     }
@@ -92,11 +81,8 @@ public class MongoConnectionTest {
                 .setTraceId(UUID.randomUUID().toString())
                 .setStartTime(System.currentTimeMillis())
                 .setSpanId(UUID.randomUUID().toString())
-                .setTimeConsuming(10)
-                .setServiceInstance(ServiceInstance.instance()
-                        .setServiceIp("localhost")
-                        .setServiceId("user-service")
-                        .setServicePort(8080));
+                .setTimeConsuming(10L)
+                .setServiceId("8e2143be-b665-40e8-be96-01e96f9d3ae7");
         String logId = logStorage.save(details);
         log.info("日志编号：{}", logId);
     }

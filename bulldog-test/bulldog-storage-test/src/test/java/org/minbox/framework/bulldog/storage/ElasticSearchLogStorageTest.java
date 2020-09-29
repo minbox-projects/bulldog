@@ -17,11 +17,14 @@ public class ElasticSearchLogStorageTest {
         ElasticSearchLogStorage storage = new ElasticSearchLogStorage();
         RequestLogDetails details = new RequestLogDetails();
         details.setRequestIp("127.0.0.1")
-                .setRequestUri("/user/10")
+                .setRequestUri("/user/15")
                 .setLogId(UUID.randomUUID().toString())
+                .setTraceId(UUID.randomUUID().toString())
+                .setServiceId("8e2143be-b665-40e8-be96-01e96f9d3ae7")
                 .setStartTime(System.currentTimeMillis())
-                .setTimeConsuming(25);
-        storage.save(details);
+                .setTimeConsuming(25L);
+        String logId = storage.save(details);
+        System.out.println(logId);
     }
 
     @Test

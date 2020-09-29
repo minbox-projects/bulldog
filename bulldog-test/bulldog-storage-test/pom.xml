@@ -42,5 +42,19 @@
             <groupId>org.minbox.framework</groupId>
             <artifactId>bulldog-storage-elasticsearch</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.minbox.framework</groupId>
+            <artifactId>bulldog-storage-database</artifactId>
+        </dependency>
     </dependencies>
 </project>

@@ -2,6 +2,7 @@ package org.minbox.framework.bulldog.common.utils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -64,6 +65,8 @@ public class ClassUtils {
                     field.setInt(object, Integer.valueOf(value.toString()));
                 } else if (Double.class == type) {
                     field.setDouble(object, Double.valueOf(value.toString()));
+                } else if (Timestamp.class == type) {
+                    field.set(object, value);
                 }
             }
         } catch (IllegalAccessException e) {

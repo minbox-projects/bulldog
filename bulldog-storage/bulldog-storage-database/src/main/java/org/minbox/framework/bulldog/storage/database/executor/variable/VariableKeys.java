@@ -37,5 +37,6 @@ public interface VariableKeys {
      * The global log keys
      */
     String GLOBAL_LOG_INSTANCE = "GlobalLogInstance";
+    String GLOBAL_LOG_INSTANCES = "GlobalLogInstances";
     String GLOBAL_LOG_ID = "GlobalLogId";
 }
