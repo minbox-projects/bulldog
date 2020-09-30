@@ -24,7 +24,7 @@ import static org.minbox.framework.bulldog.storage.database.executor.variable.Va
 public class SelectServiceIdDataExecutor extends QueryDataExecutor<String> {
 
     @Override
-    public String getSql() {
+    protected String getSql() {
         return ServiceInstanceTable.SQL.SELECT.byNameAndIpAndPort();
     }
 
@@ -42,7 +42,7 @@ public class SelectServiceIdDataExecutor extends QueryDataExecutor<String> {
      * @return The {@link ParameterTypeMapping} collection
      */
     @Override
-    public List<ParameterTypeMapping> getParameterMappings(ParameterVariable variable) {
+    protected List<ParameterTypeMapping> getParameterMappings(ParameterVariable variable) {
         return Arrays.asList(
                 new StringParameterTypeMapping(1, variable.getVariable(SERVICE_NAME)),
                 new StringParameterTypeMapping(2, variable.getVariable(SERVICE_IP)),
@@ -58,7 +58,7 @@ public class SelectServiceIdDataExecutor extends QueryDataExecutor<String> {
      * @throws SQLException sql exception
      */
     @Override
-    public void mappingResult(ResultSet resultSet, ParameterVariable variable) throws SQLException {
+    protected void mappingResult(ResultSet resultSet, ParameterVariable variable) throws SQLException {
         while (resultSet.next()) {
             String serviceId = resultSet.getString(Columns.ServiceInstance.SERVICE_ID);
             variable.putVariable(SERVICE_ID, serviceId);
