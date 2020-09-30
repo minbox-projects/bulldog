@@ -31,7 +31,9 @@ public interface VariableKeys {
      * The non-request log keys
      */
     String NON_REQUEST_LOG_INSTANCE = "NonRequestLogInstance";
+    String NON_REQUEST_LOG_INSTANCES = "NonRequestLogInstances";
     String NON_REQUEST_LOG_ID = "NonRequestLogId";
+    String NON_REQUEST_TRACE_ID = "NonRequestTraceId";
 
     /**
      * The global log keys

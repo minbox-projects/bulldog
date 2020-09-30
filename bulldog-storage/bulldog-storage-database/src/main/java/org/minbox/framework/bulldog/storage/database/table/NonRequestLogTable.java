@@ -34,5 +34,13 @@ public class NonRequestLogTable {
                 );
             }
         }
+
+        public static class SELECT {
+            public static String byTraceId() {
+                return SQLPatterns.selectSql(TABLE_NAME, SQLPatterns.ALL_COLUMN) +
+                        SQLPatterns.whereAndSql(TRACE_ID) +
+                        SQLPatterns.orderBySql(SortBy.desc, START_TIME);
+            }
+        }
     }
 }

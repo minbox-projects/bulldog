@@ -31,7 +31,8 @@ public class ServiceInstanceTable {
                         SERVICE_NAME,
                         SERVICE_IP,
                         SERVICE_PORT,
-                        SERVICE_HOSTNAME
+                        SERVICE_HOSTNAME,
+                        SERVICE_CREATE_TIME
                 );
             }
         }
